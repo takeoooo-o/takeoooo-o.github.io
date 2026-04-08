@@ -1,16 +1,27 @@
-<body>
-  <header>
-    <h1>My Website</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-    </nav>
-  </header>
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #d0e0f0);
+  margin: 0;
+}
 
-  <main>
-    <section class="intro">
-      <h2>Welcome!</h2>
-      <p>This is my cool site.</p>
-    </section>
-  </main>
-</body>
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.intro {
+  text-align: center;
+  margin-top: 50px;
+}
