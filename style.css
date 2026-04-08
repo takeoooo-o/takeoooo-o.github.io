@@ -1,8 +1,16 @@
-p {
-  color: green;
-  font-size: 22px;
-}
-body {
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
-}
+<body>
+  <header>
+    <h1>My Website</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Welcome!</h2>
+      <p>This is my cool site.</p>
+    </section>
+  </main>
+</body>
