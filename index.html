@@ -1,70 +1,176 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>たけおの部屋</title>
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .btn-youtube {
+      background-color: #FF0000;
+    }
+
+    .btn-twitter {
+      background-color: #000000;
+    }
+
+    /* 爆発ボタン */
+    #explosion-button {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1000;
+
+      padding: 14px 22px;
+      border: none;
+      border-radius: 12px;
+
+      background: #ff3b00;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.15s;
+    }
+
+    #explosion-button:hover {
+      transform: scale(1.08);
+    }
+
+    /* 爆発動画 */
+    #explosion-video {
+      display: none;
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 9999;
+      background: black;
+    }
+
+    @media (max-width: 600px) {
+      #explosion-button {
+        right: 12px;
+        bottom: 12px;
+        font-size: 15px;
+        padding: 11px 16px;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
+
   <header>
     <h1>たけおの部屋</h1>
+
     <nav>
       <a href="#">Home</a>
       <a href="あばうと/">About</a>
-      <a href="https://osu.ppy.sh/users/37321995/osu" target="_blank">osu!プロフ</a>
+      <a href="https://osu.ppy.sh/users/37321995/osu" target="_blank">
+        osu!プロフ
+      </a>
     </nav>
   </header>
 
   <main>
+
     <section class="intro">
       <h2>Welcome!</h2>
       <p>ノリで作ったサイトです</p>
     </section>
-  <section class="sns-profile">
-  <h2>SNSリンク</h2>
-  <div class="social-links">
-    <a href="https://www.youtube.com/@takeooo-o" target="_blank" class="btn btn-youtube">YouTube</a>
-    <a href="https://x.com/takeo_2525_" target="_blank" class="btn btn-twitter">X</a>
-  </div>
-</section>
-<style>
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px; 
-    margin-top: 20px;
-    flex-wrap: wrap; 
-  }
-  .btn {
-    padding: 10px 20px;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-  .btn-youtube {
-    background-color: #FF0000;
-  }
-  .btn-twitter {
-    background-color: #000000;
-  }
- 
-  /* モバイル対応 */
-  @media (max-width: 600px) {
-    .btn {
-      padding: 8px 16px;
-      font-size: 0.9rem;
-    }
-  }
-</style>
-</section>
+
+    <section class="sns-profile">
+      <h2>SNSリンク</h2>
+
+      <div class="social-links">
+        <a href="https://www.youtube.com/@takeooo-o"
+           target="_blank"
+           class="btn btn-youtube">
+          YouTube
+        </a>
+
+        <a href="https://x.com/takeo_2525_"
+           target="_blank"
+           class="btn btn-twitter">
+          X
+        </a>
+      </div>
+    </section>
+
   </main>
+
+
+  <!-- 右下の爆発ボタン -->
+  <button id="explosion-button">
+    💥 爆発！
+  </button>
+
+
+  <!-- 爆発動画 -->
+  <video id="explosion-video" playsinline>
+    <source src="explosion.mp4" type="video/mp4">
+  </video>
+
+
+  <script>
+    const button = document.getElementById("explosion-button");
+    const video = document.getElementById("explosion-video");
+
+    button.addEventListener("click", () => {
+
+      // ボタンを隠す
+      button.style.display = "none";
+
+      // 動画を表示
+      video.style.display = "block";
+
+      // 最初から再生
+      video.currentTime = 0;
+      video.play();
+
+    });
+
+    // 動画が終わったら元の画面に戻る
+    video.addEventListener("ended", () => {
+
+      video.style.display = "none";
+      button.style.display = "block";
+
+    });
+  </script>
+
 </body>
 </html>
