@@ -1,0 +1,43 @@
+body {
+  background: linear-gradient(to bottom, #ffffff, #c1e4e9);
+  background-repeat: no-repeat;   
+  background-attachment: fixed;   
+  background-size: cover;         
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.intro {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.sns-profile h2 {
+  text-align: center; 
+  margin-bottom: 15px; 
+}
+
+@font-face {
+  font-family: 'KeiFont'; 
+  src: url('fonts/keifont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'KeiFont', sans-serif;
+}
